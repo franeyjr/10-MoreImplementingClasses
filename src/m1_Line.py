@@ -228,6 +228,8 @@ class Line(object):
         self.start = start.clone()
         self.end = end.clone()
         self.number_of_clones = 0
+        self.real_start = start.clone()
+        self.real_end = end.clone()
 
 
     def __repr__(self):
@@ -632,7 +634,7 @@ class Line(object):
           :rtype: bool
         """
         # ---------------------------------------------------------------------
-        # TODO: 12.
+        # DONE: 12.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -667,6 +669,11 @@ class Line(object):
         # floating-point errors while distinguishing numbers that really
         # are different from each other.
         #######################################################################
+        if round(self.slope(),12) == round(line2.slope(),12):
+            return True
+        else:
+            return False
+
 
     def reset(self):
         """
@@ -698,7 +705,7 @@ class Line(object):
             print(line2)  # Should print: Line[(0, 1), (10, 20)]
         """
         # ---------------------------------------------------------------------
-        # TODO: 13.
+        # DONE: 13.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -706,7 +713,8 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # ---------------------------------------------------------------------
-
+        self.start = self.real_start
+        self.end = self.real_end
 
 ###############################################################################
 # The TEST functions for the  Line  class begin here.
