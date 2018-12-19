@@ -21,7 +21,7 @@ def main():
     print(' to run the testing code as you complete the TODOs.')
 
     run_test_simple_t()
-    # run_test_set_colors()
+    run_test_set_colors()
     # run_test_move_by()
     # run_test_clone()
 
@@ -170,8 +170,8 @@ class CapitalT(object):
         #   and *** NO OTHER INSTANCE VARIABLES. ***
         #   Note: Implement   attach_to   before testing this __init__ method.
         # ---------------------------------------------------------------------
-        self.h_rect = rg.Rectangle(rg.Point(intersection_center.x - width/2,intersection_center.y),rg.Point(intersection_center.x + width/2,intersection_center.y - letter_thickness))
-        self.v_rect = rg.Rectangle(rg.Point(intersection_center.x - letter_thickness/2,intersection_center.y),rg.Point(intersection_center.x + letter_thickness/2,intersection_center.y + height))
+        self.h_rect = rg.Rectangle(rg.Point(intersection_center.x - width/2,intersection_center.y + letter_thickness/2),rg.Point(intersection_center.x + width/2,intersection_center.y - letter_thickness/2))
+        self.v_rect = rg.Rectangle(rg.Point(intersection_center.x - letter_thickness/2,intersection_center.y - letter_thickness/2),rg.Point(intersection_center.x + letter_thickness/2,intersection_center.y + (height - letter_thickness/2)))
 
     def attach_to(self, window):
         """
@@ -227,7 +227,7 @@ class CapitalT(object):
           :type outline_color: str
         """
         # ---------------------------------------------------------------------
-        # TODO: 5.
+        # DONE: 5.
         #   READ the above specification, including the Example.
         #   Implement this method, then TEST it by:
         #     a. Un-comment the call to its test function, in main.  Run.
@@ -235,6 +235,11 @@ class CapitalT(object):
         #     c. Compare the graphics window to the  set_colors.pdf   pictures.
         #        They should look exactly the same as each other.
         # ---------------------------------------------------------------------
+        self.v_rect.fill_color = fill_color
+        self.v_rect.outline_color = outline_color
+        self.h_rect.fill_color = fill_color
+        self.h_rect.outline_color = outline_color
+
 
     def move_by(self, dx, dy):
         """
